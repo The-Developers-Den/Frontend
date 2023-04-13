@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import Head from "next/head";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 // import {
 //   getDefaultWallets,
@@ -48,8 +49,8 @@ export default function App({ Component, pageProps }) {
         <Header />
         <Component {...pageProps} />
         {/* </RainbowKitProvider> */}
+        <Footer />
       </WagmiConfig>
-      {/* <Footer /> */}
     </>
   );
 }

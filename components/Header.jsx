@@ -6,36 +6,13 @@ import MenuMobile from "./MenuMobile";
 
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [show, setShow] = useState("translate-y-0yarm");
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const controlNavbar = () => {
-    if (window.scrollY > 200) {
-      if (window.scrollY > lastScrollY && !mobileMenu) {
-        setShow("-translate-y-[80px]");
-      } else {
-        setShow("shadow-sm");
-      }
-    } else {
-      setShow("translate-y-0");
-    }
-    setLastScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, [lastScrollY]);
 
   return (
     <header
-      className={`w-full h-[50px] md:h-[80px] border-b flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${show} font-monument_reg`}
+      className={`w-full h-[50px] md:h-[80px] border-b flex items-center justify-between z-20  top-0 transition-transform duration-300 font-monument_reg`}
     >
       <div className="w-full max-w-screen px-5 md:px-10 mx-auto h-[60px] flex justify-between items-center">
         <Link href="/">
