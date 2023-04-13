@@ -1,5 +1,8 @@
 import HeroText from "@/components/HeroText";
 import HeroImg from "@/components/HeroImg";
+import Headline from "@/components/Headline";
+import TopProducts from "@/components/TopProducts";
+import MarketPlace from "@/components/MarketPlace";
 
 export default function Home() {
   return (
@@ -8,6 +11,11 @@ export default function Home() {
         <HeroText />
         <HeroImg />
       </div>
+      <Headline text="Trending Products" />
+      <TopProducts />
+      <Headline text="Our MarketPlace" />
+      <MarketPlace />
+      <Headline text="Top Products" />
     </main>
   );
 }
