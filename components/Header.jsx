@@ -37,7 +37,7 @@ const Header = () => {
     <header
       className={`w-full h-[50px] md:h-[80px] border-b flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${show} font-monument_reg`}
     >
-      <div className="w-full max-w-[1280px] px-5 md:px-10 mx-auto h-[60px] flex justify-between items-center">
+      <div className="w-full max-w-screen px-5 md:px-10 mx-auto h-[60px] flex justify-between items-center">
         <Link href="/">
           {/* <Image
             src="/assets/logo.svg"
@@ -51,18 +51,7 @@ const Header = () => {
         <Menu />
         {mobileMenu && <MenuMobile setMobileMenu={setMobileMenu} />}
         <div className="flex font-monument_reg">
-          {/* <ConnectButton
-            chainStatus={{
-              smallScreen: "none",
-              largeScreen: "icon",
-            }}
-            showBalance={false}
-            accountStatus={{
-              smallScreen: "avatar",
-              largeScreen: "full",
-            }}
-          /> */}
-          <button className="bg-white rounded-3xl text-black px-3 py-2 hover:scale-95 text-sm gap-10 shadow-[5px_5px_0px_#7843E8]">
+          <button className="bg-white rounded-3xl text-black px-3 py-2 hover:scale-95 text-sm gap-10 shadow-[5px_5px_0px_#7843E8] duration-200">
             Connect Wallet
           </button>
           {/* Mobile icon start */}
