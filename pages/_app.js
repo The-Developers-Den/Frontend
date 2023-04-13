@@ -2,31 +2,25 @@ import "@/styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import Head from "next/head";
 import Header from "@/components/Header";
-
-import {
-  getDefaultWallets,
-  RainbowKitProvider,
-  darkTheme,
-} from "@rainbow-me/rainbowkit";
+import { MetaMaskConnector } from "wagmi/connectors/metaMask";
+// import {
+//   getDefaultWallets,
+//   RainbowKitProvider,
+//   darkTheme,
+// } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
+import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
-const { chains, provider } = configureChains(
-  [mainnet, polygon, optimism, arbitrum],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
+const { chains, provider, webSocketProvider } = configureChains(
+  [mainnet, polygonMumbai, polygon],
+  [alchemyProvider({ apiKey: "yourAlchemyApiKey" }), publicProvider()]
 );
-
-const { connectors } = getDefaultWallets({
-  appName: "Roller Dao",
-  projectId: process.env.NEXT_PUBLIC_WALLET_CONNCT_PROJECT_KEY,
-  chains,
-});
 
 const wagmiClient = createClient({
   autoConnect: true,
-  connectors,
+  connectors: [new MetaMaskConnector({ chains })],
   provider,
 });
 
@@ -40,16 +34,20 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider
+        {/* <RainbowKitProvider
           chains={chains}
+          modalSize="compact"
           theme={darkTheme({
-            accentColor: "#7b3fe4",
+            accentColor: "white",
+
             accentColorForeground: "white",
+            fontStack: "system",
+            modalText: "green",
           })}
-        >
-          <Header />
-          <Component {...pageProps} />
-        </RainbowKitProvider>
+        > */}
+        <Header />
+        <Component {...pageProps} />
+        {/* </RainbowKitProvider> */}
       </WagmiConfig>
       {/* <Footer /> */}
     </>
