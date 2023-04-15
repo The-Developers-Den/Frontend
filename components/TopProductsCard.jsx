@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const TopProductsCard = () => {
   return (
-    <div className="flex min-h-fit justify-center hover:scale-105 duration-300">
+    <div className="flex min-h-fit justify-center hover:scale-105 duration-300 p-5">
       <div className="border-2 border-white shadow-[8px_8px_0_#FFF253] min-w-[22vw] max-w-[25vw] bg-black rounded-lg mx-4 h-[330px] flex justify-center content-center">
         <Image
           src={"/hero-img.png"}
