@@ -4,11 +4,6 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-// import {
-//   getDefaultWallets,
-//   RainbowKitProvider,
-//   darkTheme,
-// } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -35,20 +30,8 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <WagmiConfig client={wagmiClient}>
-        {/* <RainbowKitProvider
-          chains={chains}
-          modalSize="compact"
-          theme={darkTheme({
-            accentColor: "white",
-
-            accentColorForeground: "white",
-            fontStack: "system",
-            modalText: "green",
-          })}
-        > */}
         <Header />
         <Component {...pageProps} />
-        {/* </RainbowKitProvider> */}
         <Footer />
       </WagmiConfig>
     </>

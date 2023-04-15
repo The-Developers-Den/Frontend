@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 // import Image from "next/image";
 import Menu from "./Menu";
+import { useAccount, useConnect } from "wagmi";
 import MenuMobile from "./MenuMobile";
 
 import { BiMenuAltRight } from "react-icons/bi";
@@ -9,6 +10,9 @@ import { VscChromeClose } from "react-icons/vsc";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const { connector: activeConnector, isConnected, address } = useAccount();
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect();
 
   return (
     <header
@@ -28,9 +32,27 @@ const Header = () => {
         <Menu />
         {mobileMenu && <MenuMobile setMobileMenu={setMobileMenu} />}
         <div className="flex font-monument_reg">
-          <button className="bg-white rounded-3xl text-black px-3 py-2 hover:scale-95 text-sm gap-10 shadow-[5px_5px_0px_#7843E8] duration-200">
-            Connect Wallet
-          </button>
+          {isConnected && (
+            <div className="bg-white rounded-3xl text-black px-3 py-2 hover:scale-95 text-sm gap-10 shadow-[5px_5px_0px_#7843E8] duration-200">
+              {address.slice(0, 4).concat("...").concat(address.slice(-4))}
+            </div>
+          )}
+
+          {!isConnected &&
+            connectors.map((connector) => (
+              <button
+                disabled={!connector.ready}
+                key={connector.id}
+                className="bg-white rounded-3xl text-black px-3 py-2 hover:scale-95 text-sm gap-10 shadow-[5px_5px_0px_#7843E8] duration-200"
+                onClick={() => connect({ connector })}
+              >
+                Connect Wallet
+                {isLoading &&
+                  pendingConnector?.id === connector.id &&
+                  " (connecting)"}
+              </button>
+            ))}
+
           {/* Mobile icon start */}
           <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
             {mobileMenu ? (
