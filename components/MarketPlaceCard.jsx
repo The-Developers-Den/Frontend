@@ -7,7 +7,7 @@ const MarketPlaceCard = () => {
       <div className="border border-black shadow-[8px_8px_0_#000000] min-w-fit bg-[#FFF89F]  rounded-md mx-4  flex justify-center content-center flex-col px-3 min-h-fit  max-md:mx-auto max-md:my-4 ">
         <div className="bg-black rounded-lg h-[85%] w-full mx-auto mt-10 p-5 md:p-3">
           <Image
-            src={"/hero-img.png"}
+            src={"/demo-project.png"}
             width={200}
             height={200}
             alt="top-product"
@@ -27,7 +27,6 @@ const MarketPlaceCard = () => {
         </section>
       </div>
       <div className="flex flex-col justify-center mx-1 max-md:content-center">
-        <h2 className="font-monument_bold text-sm my-1">Dec 13, 2023</h2>
         <h2 className="font-otf text-2xl text-[#7843E8]">Text</h2>
         <h2 className="font-monument_bold text-sm my-1">SubText</h2>
         <h2 className="font-monument_reg text-xs my-2 text-black/[0.65]">

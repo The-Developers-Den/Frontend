@@ -5,7 +5,7 @@ const TopProductsCard = () => {
     <div className="flex min-h-fit justify-center hover:scale-105 duration-300 p-5  max-md:flex-col">
       <div className="border-2 border-white shadow-[8px_8px_0_#FFF253] min-w-fit bg-black rounded-lg mx-4  flex justify-center content-center max-md:my-4 max-md:mx-auto p-5  md:p-10 ">
         <Image
-          src={"/hero-img.png"}
+          src={"/top-2-demo.png"}
           width={200}
           height={200}
           alt="top-product"

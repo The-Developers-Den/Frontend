@@ -4,11 +4,11 @@ const HeroText = () => {
   return (
     <div className="md:basis-[50%] text-center px-5  md:border-r font-otf">
       <div className="w-full relative h-full flex flex-col max-md:justify-center justify-center">
-        <h1 className="md:text-7xl max-md:text-6xl">Virtual</h1>
+        <h1 className="md:text-7xl max-md:text-6xl">Lending</h1>
         <h1 className="md:text-7xl max-md:text-6xl ">World</h1>
-        <h2 className="text-[#A3A3A3] my-5 md:text-sm max-md:text-xs">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
-          quis it optio amet abs voluptates voluptas
+        <h2 className="text-[#A3A3A3] my-5 md:text-sm max-md:text-xs font-monument_reg">
+          We aim to grow as a crowdfunding platform to help users build their
+          dreams and help others to achieve what they want to create.
         </h2>
         <span className="max-md:hidden absolute bottom-5 -right-16 rounded-full text-white bg-[#454545] h-20 w-20 flex justify-center content-center">
           <svg

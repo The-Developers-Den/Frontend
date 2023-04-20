@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const data = [
   { id: 1, name: "All Projects", url: "/" },
   { id: 2, name: "Contribute", url: "/" },
-  { id: 3, name: "About Us", url: "/", selected: true },
+  { id: 3, name: "About Us", url: "/about", selected: true },
 ];
 
 const FooterMenu = () => {
