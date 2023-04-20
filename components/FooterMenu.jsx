@@ -2,11 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 const data = [
-  { id: 1, name: "Fund Me", url: "/" },
-  { id: 2, name: "All Projects", url: "/about" },
-  { id: 3, name: "Top Projects", url: "/contact" },
-  { id: 4, name: "Discord", url: "/contact" },
-  { id: 5, name: "Connect", url: "/contact", selected: true },
+  { id: 1, name: "All Projects", url: "/" },
+  { id: 2, name: "Contribute", url: "/" },
+  { id: 3, name: "About Us", url: "/", selected: true },
 ];
 
 const FooterMenu = () => {
@@ -16,7 +14,7 @@ const FooterMenu = () => {
       {data.map((item) => {
         return item.selected ? (
           <React.Fragment key={item.id}>
-            <li className="cursor-pointer border py-2 rounded-2xl px-4 bg-[#7843E8] border-[black] shadow-[5px_5px_0px_#FFFFFF] hover:scale-95 duration-200 ">
+            <li className="cursor-pointer border py-2 rounded-2xl px-4 bg-[#7843E8] border-[black] shadow-[5px_5px_0px_#FFFFFF] hover:scale-95 duration-200 hover:shadow-[2px_2px_0px_#FFFFFF] ">
               <Link href={item?.url}>{item.name}</Link>
             </li>
           </React.Fragment>

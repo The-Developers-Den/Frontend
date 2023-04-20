@@ -7,15 +7,15 @@ import MarketPlace from "@/components/MarketPlace";
 export default function Home() {
   return (
     <main>
-      <div className="w-full max-w-screen px-3 md:px-7 flex max-md:flex-col min-h-[75vh]">
+      <div className="w-full max-w-[1280px] mx-auto px-3 md:px-7 flex h-[600px] max-md:h-[500px]">
         <HeroText />
         <HeroImg />
       </div>
-      <Headline text="Trending Products" />
+      <Headline text="Trending Projects" />
       <TopProducts />
       <Headline text="Our MarketPlace" />
       <MarketPlace />
-      <Headline text="Top Products" />
+      <Headline text="Top Projects" />
     </main>
   );
 }

@@ -3,9 +3,8 @@ import Link from "next/link";
 
 const data = [
   { id: 1, name: "Home", url: "/" },
-  { id: 2, name: "Projects", url: "/about" },
-  { id: 3, name: "About", url: "/contact" },
-  //   { id: 4, name: "About", url: "/contact" },
+  { id: 2, name: "Projects", url: "/", ele: "events" },
+  { id: 3, name: "Create", url: "/create" },
 ];
 
 const Menu = () => {
@@ -14,8 +13,12 @@ const Menu = () => {
       {data.map((item) => {
         return (
           <React.Fragment key={item.id}>
-            <li className="cursor-pointer">
-              <Link href={item?.url}>{item.name}</Link>
+            <li className="cursor-pointer hover:scale-95 duration-300">
+              {item.ele ? (
+                <Link href={`#${item.ele}`}>{item.name}</Link>
+              ) : (
+                <Link href={item?.url}>{item.name}</Link>
+              )}
             </li>
           </React.Fragment>
         );

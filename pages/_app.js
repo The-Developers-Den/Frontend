@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
-import "@rainbow-me/rainbowkit/styles.css";
 import Head from "next/head";
+import { InjectedConnector } from "wagmi/connectors/injected";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import React from "react";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
@@ -16,11 +17,16 @@ const { chains, provider, webSocketProvider } = configureChains(
 
 const wagmiClient = createClient({
   autoConnect: true,
-  connectors: [new MetaMaskConnector({ chains })],
+  connectors: [new InjectedConnector({ chains })],
   provider,
 });
 
 export default function App({ Component, pageProps }) {
+  const [ready, setReady] = React.useState(false);
+  React.useEffect(() => {
+    setReady(true);
+  }, []);
+
   return (
     <>
       <Head>
@@ -29,11 +35,17 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <WagmiConfig client={wagmiClient}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </WagmiConfig>
+      {!ready ? (
+        <div className="h-screen w-screen flex justify-center items-center">
+          hola
+        </div>
+      ) : (
+        <WagmiConfig client={wagmiClient}>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </WagmiConfig>
+      )}
     </>
   );
 }
