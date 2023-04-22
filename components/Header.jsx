@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full h-[60px] md:h-[80px] border-b flex items-center justify-between z-20  top-0 transition-transform duration-300 font-monument_reg `}
+      className={`w-full h-[60px] md:h-[80px] border-b flex items-center justify-between z-20  top-0 transition-transform duration-300 font-monument_reg  `}
     >
       <div className="w-full max-w-[1280px] px-5 md:px-10 mx-auto h-[60px] flex justify-between items-center">
         <Link href="/">

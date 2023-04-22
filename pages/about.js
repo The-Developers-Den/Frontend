@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full max-w-[1280px] px-5 md:px-10 mx-auto min-h-[80vh] text-center py-5">
+    <div className="w-full max-w-[1280px] px-5 md:px-10 mx-auto min-h-[80vh]  text-center py-5">
       <h1 className="font-otf text-2xl my-5">About</h1>
       <h2 className="font-monument_reg text-xs my-5 w-[55%] max-md:w-full mx-auto">
         Roller DAO is a decentralized crowdfunding platform, built and executed

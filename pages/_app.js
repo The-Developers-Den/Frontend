@@ -1,10 +1,11 @@
 import "@/styles/globals.css";
 import Head from "next/head";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import React from "react";
-import { MetaMaskConnector } from "wagmi/connectors/metaMask";
+import { URL_QUERY_GRAPHQL } from "@/utils/constants";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet, polygon, polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -19,6 +20,11 @@ const wagmiClient = createClient({
   autoConnect: true,
   connectors: [new InjectedConnector({ chains })],
   provider,
+});
+
+const client = new ApolloClient({
+  uri: URL_QUERY_GRAPHQL,
+  cache: new InMemoryCache(),
 });
 
 export default function App({ Component, pageProps }) {
@@ -37,14 +43,16 @@ export default function App({ Component, pageProps }) {
       </Head>
       {!ready ? (
         <div className="h-screen w-screen flex justify-center items-center">
-          hola
+          Loading..
         </div>
       ) : (
-        <WagmiConfig client={wagmiClient}>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </WagmiConfig>
+        <ApolloProvider client={client}>
+          <WagmiConfig client={wagmiClient}>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+          </WagmiConfig>
+        </ApolloProvider>
       )}
     </>
   );

@@ -35,7 +35,7 @@ const MarketPlaceCard = () => {
           cupidibu
         </h2>
         <Link
-          href="/tickets/event-1"
+          href="/project/Abjdfk123412d"
           className="bg-[#FFF89F] rounded-3xl text-black py-2 my-1 px-3  hover:scale-95 text-xs gap-10 shadow-[5px_5px_0px_#000000] hover:shadow-[2px_2px_0px_#000000] duration-200 font-monument_reg border border-black text-center min-w-fit max-md:mx-auto max-md:px-5"
         >
           Explore
