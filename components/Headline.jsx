@@ -7,7 +7,7 @@ const Headline = ({ text }) => {
       <section className="w-full relative flex content-center overflow-hidden border-b border-t  font-monument_bold text-lg py-2 whitespace-nowrap">
         {/* <marquee> */}
         <div
-          className={`flex hover:-translate-x-[5rem] duration-700 ${show} whitespace-nowrap`}
+          className={`flex hover:-translate-x-[5rem] duration-700 whitespace-nowrap`}
         >
           {Array(20)
             .fill(0)
